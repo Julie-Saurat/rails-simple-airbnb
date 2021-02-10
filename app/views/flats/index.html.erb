@@ -1,0 +1,27 @@
+<div class="container">
+  <div id="title">
+    <h1>All our Flats (<%= @flats.count %>)</h1>
+  </div>
+
+  <div class="all-cards">
+    <ul>
+      <% @flats.each do |flat| %>
+        <li class="card" style="width: 18rem;">
+          <img src="https://source.unsplash.com/random" class="card-img-top" alt="image">
+          <div class="card-body">
+            <h2 class="card-title"><%= flat.name %></h2>
+            <p class="card-text"><%= flat.address %></p>
+            <p class="card-text"><%= flat.description %></p>
+            <div class="card-number">
+              <p class="card-text"><i class="fas fa-user-friends"></i> <%= flat.number_of_guests %></p>
+              <p class="card-text"><i class="fas fa-euro-sign"></i> <%= flat.price_per_night %></p>
+            </div>
+          </div>
+          <div class="list-group">
+            <%= link_to "More info", flat_path(flat) %>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
